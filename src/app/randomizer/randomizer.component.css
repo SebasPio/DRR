@@ -1,0 +1,25 @@
+.width-button{
+      width: 80%!important;
+      min-width: unset!important;
+      height: 100px;
+}
+
+.text-block {
+      position: absolute;
+      top: 50%;
+      left: 20%;
+      background-color: black;
+      color: white;
+    }
+
+    .card-width{
+      width: 20em;
+}
+
+.button-width{
+      width: 100%;
+}
+
+.heigth-list{
+      height: 5em;
+}
