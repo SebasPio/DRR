@@ -1,9 +1,26 @@
-<main class="imgback">
+<!-- <main class="imgback">
   <mat-card class="center">
     <mat-card-title align="center">
       <h1>TORNEO DE DIRT RALLY BY EUROLATAM</h1>
     </mat-card-title>
   </mat-card>
   <app-randomizer></app-randomizer>
-  <!-- <router-outlet></router-outlet> -->
-</main>
+</main> -->
+
+<p>
+  <mat-toolbar align="center">
+    <div style="cursor:pointer;" routerLink="/home" value="home">
+    <h1>TORNEO DE DIRT RALLY BY EUROLATAM</h1>
+    </div>
+    <div class="example-spacer"></div>
+    <mat-button-toggle-group name="route-toggle" #group="matButtonToggleGroup" aria-label="Favorite Color">
+      <mat-button-toggle routerLink="/randomizer" value="randomizer" (click)="menuSelected(group)">
+        <span>Selector de etapas</span>
+      </mat-button-toggle>
+      <mat-button-toggle value="about" (click)="menuSelected(group)">
+        <span>Acerca de</span>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</p>

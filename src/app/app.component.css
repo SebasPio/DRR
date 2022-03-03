@@ -2,3 +2,7 @@
     color: #FE7F88;
     background-image: url('../assets/images/smoke.jpg');
 }
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
