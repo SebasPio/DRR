@@ -2,19 +2,22 @@
 
 <div fxLayout="row" fxFill fxLayoutAlign="space-around  center">
   <mat-card class="card-width">
-    <mat-card-title align="center"> ETAPA </mat-card-title>
+    <mat-card-title align="center"> LOCATION </mat-card-title>
     <br />
     <mat-card-content align="center">
       <img
-        *ngIf="isStageSelected"
+        [@flip]="locationAnimationState"
+        *ngIf="isLocationSelected"
         mat-card-image
-        src="../../assets/images/stagesquare.jpg"
+        src="../../assets/images/locationsquare.jpg"
       />
-      <img *ngIf="!isStageSelected" mat-card-image src="{{ question }}" />
+      <img *ngIf="!isLocationSelected" mat-card-image src="{{ question }}" />
       <mat-card-subtitle>
         <h1>
           {{
-            isStageSelected == true ? stageSelected.stageName : "Por definir"
+            isLocationSelected == true
+              ? locationSelected.locationName
+              : "Por definir"
           }}
         </h1>
       </mat-card-subtitle>
@@ -24,20 +27,21 @@
           class="button-width"
           mat-raised-button
           color="primary"
-          (click)="getStageRandom()"
+          (click)="getLocationRandom()"
         >
-          <h1 *ngIf="!isStageSelected">Elegir etapa</h1>
-          <h1 *ngIf="isStageSelected">Volver a elegir</h1>
+          <h1 *ngIf="!isLocationSelected">Elegir etapa</h1>
+          <h1 *ngIf="isLocationSelected">Volver a elegir</h1>
         </button>
       </mat-card-actions>
     </mat-card-content>
   </mat-card>
 
   <mat-card class="card-width">
-    <mat-card-title align="center"> GRUPO </mat-card-title>
+    <mat-card-title align="center"> GROUP </mat-card-title>
     <br />
     <mat-card-content>
       <img
+        [@flip]="groupAnimationState"
         *ngIf="isGroupSelected"
         mat-card-image
         src="../../assets/images/carsquare.jpg"
@@ -66,15 +70,21 @@
   </mat-card>
 
   <mat-card class="card-width">
-    <mat-card-title align="center"> VEHÍCULO </mat-card-title>
+    <mat-card-title align="center"> VEHICLE </mat-card-title>
     <br />
     <mat-card-content>
       <img
+        [@flip]="vehicleAnimationState"
         *ngIf="isVehicleSelected"
         mat-card-image
         src="../../assets/images/carsquare.jpg"
       />
-      <img *ngIf="!isVehicleSelected" mat-card-image src="{{ question }}" />
+      <img
+        [@flip]="vehicleAnimationState"
+        *ngIf="!isVehicleSelected"
+        mat-card-image
+        src="{{ question }}"
+      />
       <mat-card-subtitle align="center">
         <h1>
           {{
@@ -103,38 +113,33 @@
 <br />
 
 <div fxLayout="row" fxFill fxLayoutAlign="space-around  center">
-
-  
-
   <mat-card class="card-width">
-    <mat-card-title align="center"> ETAPA </mat-card-title>
+    <mat-card-title align="center"> WEATHER </mat-card-title>
     <br />
     <mat-card-content align="center">
       <img
-        *ngIf="isStageSelected"
+        *ngIf="false"
         mat-card-image
-        src="../../assets/images/stagesquare.jpg"
+        src="../../assets/images/locationsquare.jpg"
       />
-      <img *ngIf="!isStageSelected" mat-card-image src="{{ question }}" />
+      <img *ngIf="true" mat-card-image src="{{ question }}" />
       <mat-card-subtitle>
         <h1>
-          {{
-            isStageSelected == true ? stageSelected.stageName : "Por definir"
-          }}
+          {{ true == true ? locationSelected.locationName : "Por definir" }}
         </h1>
       </mat-card-subtitle>
       <hr />
       <mat-card-actions align="end">
         <button class="button-width" mat-raised-button color="primary">
-          <h1 *ngIf="!isStageSelected">Elegir etapa</h1>
-          <h1 *ngIf="isStageSelected">Volver a elegir</h1>
+          <h1 *ngIf="false">Elegir etapa</h1>
+          <h1 *ngIf="true">Volver a elegir</h1>
         </button>
       </mat-card-actions>
     </mat-card-content>
   </mat-card>
 
   <mat-card class="card-width">
-    <mat-card-title align="center"> DESGASTE </mat-card-title>
+    <mat-card-title align="center"> SURFACE WEAR </mat-card-title>
     <br />
     <div *ngIf="!isSurfaceWearSelected">
       <mat-card-content>
@@ -161,7 +166,7 @@
         class="heigth-list"
         *ngFor="let item of surfaceWearSelected; let indice = index"
       >
-        <mat-card-subtitle align="center">
+        <mat-card-subtitle [@flip]="surfaceWearAnimationState" align="center">
           <h2>{{ indice + 1 }} - {{ item.surfaceWearName }}</h2>
         </mat-card-subtitle>
       </div>
@@ -182,7 +187,7 @@
   </mat-card>
 
   <mat-card class="card-width">
-    <mat-card-title align="center"> AREA DE SERVICIO </mat-card-title>
+    <mat-card-title align="center"> SERVICE AREA </mat-card-title>
     <br />
     <div *ngIf="!isServiceAreaSelected">
       <mat-card-content>
@@ -209,7 +214,7 @@
         class="heigth-list"
         *ngFor="let item of serviceAreaSelected; let indice = index"
       >
-        <mat-card-subtitle align="center">
+        <mat-card-subtitle [@flip]="serviceAreaAnimationState" align="center">
           <h1>{{ indice + 1 }} - {{ item.serviceAreaName }}</h1>
         </mat-card-subtitle>
       </div>
@@ -229,4 +234,4 @@
     </div>
   </mat-card>
 </div>
-<br>
+<br />
