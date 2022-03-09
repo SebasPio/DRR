@@ -2,13 +2,13 @@ export class Location {
     locationId: number;
     locationName: string;
     locationProbability: number;
-    locationImageUrl: string;
+    locationImageUrlWebp: string;
 
     constructor(){
         this.locationId = 0,
         this.locationName = '',
         this.locationProbability = 1,
-        this.locationImageUrl = '';
+        this.locationImageUrlWebp = '';
     }
     
 }
@@ -46,14 +46,14 @@ export class Vehicle{
     vehicleName: string;
     vehicleProbability: number;
     vehicleClassId: number;
-    vehicleClassImageUrl: string;
+    vehicleImageUrlWebp: string;
 
     constructor(){
         this.vehicleId = 0;
         this.vehicleName = '';
         this.vehicleProbability = 1;
         this.vehicleClassId = 0;
-        this.vehicleClassImageUrl = '';
+        this.vehicleImageUrlWebp = '';
     }
 }
 export class ServiceArea{

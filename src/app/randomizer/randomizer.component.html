@@ -5,22 +5,24 @@
     <mat-card-title align="center"> LOCATION </mat-card-title>
     <br />
     <mat-card-content align="center">
-      <img
-        [@flip]="locationAnimationState"
-        *ngIf="isLocationSelected"
-        mat-card-image
-        src="../../assets/images/locationsquare.jpg"
-      />
-      <img *ngIf="!isLocationSelected" mat-card-image src="{{ question }}" />
-      <mat-card-subtitle>
-        <h1>
-          {{
-            isLocationSelected == true
-              ? locationSelected.locationName
-              : "Por definir"
-          }}
-        </h1>
-      </mat-card-subtitle>
+      <div class="resultHeigth">
+        <img
+          [@flip]="locationAnimationState"
+          *ngIf="isLocationSelected"
+          mat-card-image
+          src="{{ locationSelected.locationImageUrlWebp }}"
+        />
+        <img *ngIf="!isLocationSelected" mat-card-image src="{{ question }}" />
+        <mat-card-subtitle>
+          <h1>
+            {{
+              isLocationSelected == true
+                ? locationSelected.locationName
+                : "Por definir"
+            }}
+          </h1>
+        </mat-card-subtitle>
+      </div>
       <hr />
       <mat-card-actions align="end">
         <button
@@ -40,20 +42,22 @@
     <mat-card-title align="center"> GROUP </mat-card-title>
     <br />
     <mat-card-content>
-      <img
-        [@flip]="groupAnimationState"
-        *ngIf="isGroupSelected"
-        mat-card-image
-        src="../../assets/images/carsquare.jpg"
-      />
-      <img *ngIf="!isGroupSelected" mat-card-image src="{{ question }}" />
-      <mat-card-subtitle align="center">
-        <h1>
-          {{
-            isGroupSelected == true ? groupSelected.groupName : "Por definir"
-          }}
-        </h1>
-      </mat-card-subtitle>
+      <div class="resultHeigth">
+        <img
+          [@flip]="groupAnimationState"
+          *ngIf="isGroupSelected"
+          mat-card-image
+          src="../../assets/images/carsquare.jpg"
+        />
+        <img *ngIf="!isGroupSelected" mat-card-image src="{{ question }}" />
+        <mat-card-subtitle align="center">
+          <h1>
+            {{
+              isGroupSelected == true ? groupSelected.groupName : "Por definir"
+            }}
+          </h1>
+        </mat-card-subtitle>
+      </div>
       <hr />
       <mat-card-actions align="end">
         <button
@@ -73,27 +77,29 @@
     <mat-card-title align="center"> VEHICLE </mat-card-title>
     <br />
     <mat-card-content>
-      <img
-        [@flip]="vehicleAnimationState"
-        *ngIf="isVehicleSelected"
-        mat-card-image
-        src="../../assets/images/carsquare.jpg"
-      />
-      <img
-        [@flip]="vehicleAnimationState"
-        *ngIf="!isVehicleSelected"
-        mat-card-image
-        src="{{ question }}"
-      />
-      <mat-card-subtitle align="center">
-        <h1>
-          {{
-            isVehicleSelected == true
-              ? vehicleSelected.vehicleName
-              : "Por definir"
-          }}
-        </h1>
-      </mat-card-subtitle>
+      <div class="resultHeigth">
+        <img
+          [@flip]="vehicleAnimationState"
+          *ngIf="isVehicleSelected"
+          mat-card-image
+          src="{{ vehicleSelected.vehicleImageUrlWebp }}"
+        />
+        <img
+          [@flip]="vehicleAnimationState"
+          *ngIf="!isVehicleSelected"
+          mat-card-image
+          src="{{ question }}"
+        />
+        <mat-card-subtitle align="center">
+          <h1>
+            {{
+              isVehicleSelected == true
+                ? vehicleSelected.vehicleName
+                : "Por definir"
+            }}
+          </h1>
+        </mat-card-subtitle>
+      </div>
       <hr />
       <mat-card-actions align="end">
         <button
@@ -117,17 +123,19 @@
     <mat-card-title align="center"> WEATHER </mat-card-title>
     <br />
     <mat-card-content align="center">
-      <img
-        *ngIf="false"
-        mat-card-image
-        src="../../assets/images/locationsquare.jpg"
-      />
-      <img *ngIf="true" mat-card-image src="{{ question }}" />
-      <mat-card-subtitle>
-        <h1>
-          {{ true == true ? locationSelected.locationName : "Por definir" }}
-        </h1>
-      </mat-card-subtitle>
+      <div class="resultHeigth">
+        <img
+          *ngIf="false"
+          mat-card-image
+          src="../../assets/images/locationsquare.jpg"
+        />
+        <img *ngIf="true" mat-card-image src="{{ question }}" />
+        <mat-card-subtitle>
+          <h1>
+            {{ true == true ? locationSelected.locationName : "Por definir" }}
+          </h1>
+        </mat-card-subtitle>
+      </div>
       <hr />
       <mat-card-actions align="end">
         <button class="button-width" mat-raised-button color="primary">
@@ -143,10 +151,12 @@
     <br />
     <div *ngIf="!isSurfaceWearSelected">
       <mat-card-content>
-        <img mat-card-image src="{{ question }}" />
-        <mat-card-subtitle align="center">
-          <h1>'Por definir'</h1>
-        </mat-card-subtitle>
+        <div class="resultHeigth">
+          <img mat-card-image src="{{ question }}" />
+          <mat-card-subtitle align="center">
+            <h1>'Por definir'</h1>
+          </mat-card-subtitle>
+        </div>
         <hr />
         <mat-card-actions align="end">
           <button
@@ -191,10 +201,14 @@
     <br />
     <div *ngIf="!isServiceAreaSelected">
       <mat-card-content>
-        <img mat-card-image src="{{ question }}" />
-        <mat-card-subtitle align="center">
-          <h1>'Por definir'</h1>
-        </mat-card-subtitle>
+        <div class="resultHeigth">
+          <div class="resultHeigth">
+            <img mat-card-image src="{{ question }}" />
+            <mat-card-subtitle align="center">
+              <h1>'Por definir'</h1>
+            </mat-card-subtitle>
+          </div>
+        </div>
         <hr />
         <mat-card-actions align="end">
           <button
