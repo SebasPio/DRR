@@ -27,3 +27,9 @@
 .resultHeigth{
       height: 28em;
 }
+
+.imgback{
+      color: #FE7F88;
+      background-image: url('../../assets/images/others/background.jpg');
+      background-position: center;
+  }
