@@ -1,160 +1,30 @@
 <div class="imgback">
-<br />
-<div fxLayout="row" fxFill fxLayoutAlign="space-around  center">
-  <mat-card class="card-width">
-    <mat-card-title align="center"> LOCATION </mat-card-title>
-    <br />
-    <mat-card-content align="center">
-      <div class="resultHeigth">
-        <img
-          [@flip]="locationAnimationState"
-          *ngIf="isLocationSelected"
-          mat-card-image
-          src="{{ locationSelected.locationImageUrlWebp }}"
-        />
-        <img *ngIf="!isLocationSelected" mat-card-image src="{{ question }}" />
-        <mat-card-subtitle>
-          <h1>
-            {{
-              isLocationSelected == true
-                ? locationSelected.locationName
-                : "Por definir"
-            }}
-          </h1>
-        </mat-card-subtitle>
-      </div>
-      <hr />
-      <mat-card-actions align="end">
-        <button
-          class="button-width"
-          mat-raised-button
-          color="primary"
-          (click)="getLocationRandom()"
-        >
-          <h1 *ngIf="!isLocationSelected">Elegir etapa</h1>
-          <h1 *ngIf="isLocationSelected">Volver a elegir</h1>
-        </button>
-      </mat-card-actions>
-    </mat-card-content>
-  </mat-card>
-
-  <mat-card class="card-width">
-    <mat-card-title align="center"> GROUP </mat-card-title>
-    <br />
-    <mat-card-content>
-      <div class="resultHeigth">
-        <img
-          [@flip]="groupAnimationState"
-          *ngIf="isGroupSelected"
-          mat-card-image
-          src="../../assets/images/carsquare.jpg"
-        />
-        <img *ngIf="!isGroupSelected" mat-card-image src="{{ question }}" />
-        <mat-card-subtitle align="center">
-          <h1>
-            {{
-              isGroupSelected == true ? groupSelected.groupName : "Por definir"
-            }}
-          </h1>
-        </mat-card-subtitle>
-      </div>
-      <hr />
-      <mat-card-actions align="end">
-        <button
-          class="button-width"
-          mat-raised-button
-          color="primary"
-          (click)="getGropupRandom()"
-        >
-          <h1 *ngIf="!isGroupSelected">Elegir Grupo</h1>
-          <h1 *ngIf="isGroupSelected">Volver a elegir</h1>
-        </button>
-      </mat-card-actions>
-    </mat-card-content>
-  </mat-card>
-
-  <mat-card class="card-width">
-    <mat-card-title align="center"> VEHICLE </mat-card-title>
-    <br />
-    <mat-card-content>
-      <div class="resultHeigth">
-        <img
-          [@flip]="vehicleAnimationState"
-          *ngIf="isVehicleSelected"
-          mat-card-image
-          src="{{ vehicleSelected.vehicleImageUrlWebp }}"
-        />
-        <img
-          [@flip]="vehicleAnimationState"
-          *ngIf="!isVehicleSelected"
-          mat-card-image
-          src="{{ question }}"
-        />
-        <mat-card-subtitle align="center">
-          <h1>
-            {{
-              isVehicleSelected == true
-                ? vehicleSelected.vehicleName
-                : "Por definir"
-            }}
-          </h1>
-        </mat-card-subtitle>
-      </div>
-      <hr />
-      <mat-card-actions align="end">
-        <button
-          class="button-width"
-          mat-raised-button
-          color="primary"
-          (click)="getVehicleByGroup()"
-        >
-          <h1 *ngIf="!isVehicleSelected">Elegir Vehículo</h1>
-          <h1 *ngIf="isVehicleSelected">Volver a elegir</h1>
-        </button>
-      </mat-card-actions>
-    </mat-card-content>
-  </mat-card>
-</div>
-
-<br />
-
-<div fxLayout="row" fxFill fxLayoutAlign="space-around  center">
-  <mat-card class="card-width">
-    <mat-card-title align="center"> WEATHER </mat-card-title>
-    <br />
-    <mat-card-content align="center">
-      <div class="resultHeigth">
-        <img
-          *ngIf="false"
-          mat-card-image
-          src="../../assets/images/locationsquare.jpg"
-        />
-        <img *ngIf="true" mat-card-image src="{{ question }}" />
-        <mat-card-subtitle>
-          <h1>
-            {{ true == true ? locationSelected.locationName : "Por definir" }}
-          </h1>
-        </mat-card-subtitle>
-      </div>
-      <hr />
-      <mat-card-actions align="end">
-        <button class="button-width" mat-raised-button color="primary">
-          <h1 *ngIf="false">Elegir etapa</h1>
-          <h1 *ngIf="true">Volver a elegir</h1>
-        </button>
-      </mat-card-actions>
-    </mat-card-content>
-  </mat-card>
-
-  <mat-card class="card-width">
-    <mat-card-title align="center"> SURFACE WEAR </mat-card-title>
-    <br />
-    <div *ngIf="!isSurfaceWearSelected">
-      <mat-card-content>
+  <br />
+  <div fxLayout="row" fxFill fxLayoutAlign="space-around  center">
+    <mat-card class="card-width">
+      <mat-card-title align="center"> LOCATION </mat-card-title>
+      <br />
+      <mat-card-content align="center">
         <div class="resultHeigth">
-          <img mat-card-image src="{{ question }}" />
-          <mat-card-subtitle align="center">
-            <h1>'Por definir'</h1>
+          <img
+            [@flip]="locationAnimationState"
+            *ngIf="isLocationSelected"
+            mat-card-image
+            src="{{ locationSelected.locationImageUrlWebp }}"
+          />
+          <img
+            *ngIf="!isLocationSelected"
+            mat-card-image
+            src="{{ question }}"
+          />
+          <mat-card-subtitle>
+            <h1>
+              {{
+                isLocationSelected == true
+                  ? locationSelected.locationName
+                  : "Empty"
+              }}
+            </h1>
           </mat-card-subtitle>
         </div>
         <hr />
@@ -163,51 +33,32 @@
             class="button-width"
             mat-raised-button
             color="primary"
-            (click)="getSurfaceWearRandom()"
+            (click)="getLocationRandom()"
           >
-            <h1>Elegir</h1>
+            <h1 *ngIf="!isLocationSelected">Choose location</h1>
+            <h1 *ngIf="isLocationSelected">Again</h1>
           </button>
         </mat-card-actions>
       </mat-card-content>
-    </div>
+    </mat-card>
 
-    <div *ngIf="isSurfaceWearSelected">
-      <div
-        class="heigth-list"
-        *ngFor="let item of surfaceWearSelected; let indice = index"
-      >
-        <mat-card-subtitle [@flip]="surfaceWearAnimationState" align="center">
-          <h2>{{ indice + 1 }} - {{ item.surfaceWearName }}</h2>
-        </mat-card-subtitle>
-      </div>
-      <mat-card-content>
-        <hr />
-        <mat-card-actions align="end">
-          <button
-            class="button-width"
-            mat-raised-button
-            color="primary"
-            (click)="getSurfaceWearRandom()"
-          >
-            <h1>Volver a elegir</h1>
-          </button>
-        </mat-card-actions>
-      </mat-card-content>
-    </div>
-  </mat-card>
-
-  <mat-card class="card-width">
-    <mat-card-title align="center"> SERVICE AREA </mat-card-title>
-    <br />
-    <div *ngIf="!isServiceAreaSelected">
+    <mat-card class="card-width">
+      <mat-card-title align="center"> GROUP </mat-card-title>
+      <br />
       <mat-card-content>
         <div class="resultHeigth">
-          <div class="resultHeigth">
-            <img mat-card-image src="{{ question }}" />
-            <mat-card-subtitle align="center">
-              <h1>'Por definir'</h1>
-            </mat-card-subtitle>
-          </div>
+          <img
+            [@flip]="groupAnimationState"
+            *ngIf="isGroupSelected"
+            mat-card-image
+            src="../../assets/images/carsquare.jpg"
+          />
+          <img *ngIf="!isGroupSelected" mat-card-image src="{{ question }}" />
+          <mat-card-subtitle align="center">
+            <h1>
+              {{ isGroupSelected == true ? groupSelected.groupName : "Empty" }}
+            </h1>
+          </mat-card-subtitle>
         </div>
         <hr />
         <mat-card-actions align="end">
@@ -215,38 +66,199 @@
             class="button-width"
             mat-raised-button
             color="primary"
-            (click)="getServiceAreaRandom()"
+            (click)="getGropupRandom()"
           >
-            <h1>Elegir</h1>
+            <h1 *ngIf="!isGroupSelected">Choose group</h1>
+            <h1 *ngIf="isGroupSelected">Again</h1>
           </button>
         </mat-card-actions>
       </mat-card-content>
-    </div>
+    </mat-card>
 
-    <div *ngIf="isServiceAreaSelected">
-      <div
-        class="heigth-list"
-        *ngFor="let item of serviceAreaSelected; let indice = index"
-      >
-        <mat-card-subtitle [@flip]="serviceAreaAnimationState" align="center">
-          <h1>{{ indice + 1 }} - {{ item.serviceAreaName }}</h1>
-        </mat-card-subtitle>
-      </div>
+    <mat-card class="card-width">
+      <mat-card-title align="center"> VEHICLE </mat-card-title>
+      <br />
       <mat-card-content>
+        <div class="resultHeigth">
+          <img
+            [@flip]="vehicleAnimationState"
+            *ngIf="isVehicleSelected"
+            mat-card-image
+            src="{{ vehicleSelected.vehicleImageUrlWebp }}"
+          />
+          <img
+            [@flip]="vehicleAnimationState"
+            *ngIf="!isVehicleSelected"
+            mat-card-image
+            src="{{ question }}"
+          />
+          <mat-card-subtitle align="center">
+            <h1>
+              {{
+                isVehicleSelected == true
+                  ? vehicleSelected.vehicleName
+                  : "Empty"
+              }}
+            </h1>
+          </mat-card-subtitle>
+        </div>
         <hr />
         <mat-card-actions align="end">
           <button
             class="button-width"
             mat-raised-button
             color="primary"
-            (click)="getServiceAreaRandom()"
+            (click)="getVehicleByGroup()"
           >
-            <h1>Volver a elegir</h1>
+            <h1 *ngIf="!isVehicleSelected">Choose vehicle</h1>
+            <h1 *ngIf="isVehicleSelected">Again</h1>
           </button>
         </mat-card-actions>
       </mat-card-content>
-    </div>
-  </mat-card>
-</div>
-<br />
+    </mat-card>
+  </div>
+
+  <br />
+
+  <div fxLayout="row" fxFill fxLayoutAlign="space-around  center">
+    <mat-card class="card-width">
+      <mat-card-title align="center"> WEATHER </mat-card-title>
+      <br />
+      <mat-card-content align="center">
+        <div class="resultHeigth">
+          <img
+            *ngIf="false"
+            mat-card-image
+            src="../../assets/images/locationsquare.jpg"
+          />
+          <img *ngIf="true" mat-card-image src="{{ question }}" />
+          <mat-card-subtitle>
+            <h1>
+              {{ true == true ? locationSelected.locationName : "Empty" }}
+            </h1>
+          </mat-card-subtitle>
+        </div>
+        <hr />
+        <mat-card-actions align="end">
+          <button class="button-width" mat-raised-button color="primary">
+            <h1 *ngIf="true">Choose weather</h1>
+            <h1 *ngIf="false">Again</h1>
+          </button>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="card-width">
+      <mat-card-title align="center"> SURFACE WEAR </mat-card-title>
+      <br />
+      <div *ngIf="!isSurfaceWearSelected">
+        <mat-card-content>
+          <div class="resultHeigth">
+            <img mat-card-image src="{{ question }}" />
+            <mat-card-subtitle align="center">
+              <h1>'Empty'</h1>
+            </mat-card-subtitle>
+          </div>
+          <hr />
+          <mat-card-actions align="end">
+            <button
+              class="button-width"
+              mat-raised-button
+              color="primary"
+              (click)="getSurfaceWearRandom()"
+            >
+              <h1>Choose surface wear</h1>
+            </button>
+          </mat-card-actions>
+        </mat-card-content>
+      </div>
+
+      <div *ngIf="isSurfaceWearSelected">
+        <div
+          class="heigth-list"
+          *ngFor="let item of surfaceWearSelected; let indice = index"
+        >
+          <mat-card-subtitle [@flip]="surfaceWearAnimationState" align="center">
+            <h2>{{ indice + 1 }} - {{ item.surfaceWearName }}</h2>
+          </mat-card-subtitle>
+        </div>
+        <mat-card-content>
+          <hr />
+          <mat-card-actions align="end">
+            <button
+              class="button-width"
+              mat-raised-button
+              color="primary"
+              (click)="getSurfaceWearRandom()"
+            >
+              <h1>Again</h1>
+            </button>
+          </mat-card-actions>
+        </mat-card-content>
+      </div>
+    </mat-card>
+
+    <mat-card class="card-width">
+      <mat-card-title align="center"> SERVICE AREA </mat-card-title>
+      <br />
+      <div *ngIf="!isServiceAreaSelected">
+        <mat-card-content>
+          <div class="resultHeigth">
+            <div class="resultHeigth">
+              <img mat-card-image src="{{ question }}" />
+              <mat-card-subtitle align="center">
+                <h1>'Empty'</h1>
+              </mat-card-subtitle>
+            </div>
+          </div>
+          <hr />
+          <mat-card-actions align="end">
+            <button
+              class="button-width"
+              mat-raised-button
+              color="primary"
+              (click)="getServiceAreaRandom()"
+            >
+              <h1>Choose service area</h1>
+            </button>
+          </mat-card-actions>
+        </mat-card-content>
+      </div>
+
+      <div *ngIf="isServiceAreaSelected">
+        <div
+          class="heigth-list"
+          *ngFor="let item of serviceAreaSelected; let indice = index"
+        >
+          <mat-card-subtitle [@flip]="serviceAreaAnimationState" align="center">
+            <h1>{{ indice + 1 }} - {{ item.serviceAreaName }}</h1>
+          </mat-card-subtitle>
+        </div>
+        <mat-card-content>
+          <hr />
+          <mat-card-actions align="end">
+            <button
+              class="button-width"
+              mat-raised-button
+              color="primary"
+              (click)="getServiceAreaRandom()"
+            >
+              <h1>Again</h1>
+            </button>
+          </mat-card-actions>
+        </mat-card-content>
+      </div>
+    </mat-card>
+  </div>
+  <br />
+    <button
+    class="button-width"
+    mat-raised-button
+    color="primary"
+    (click)="chooseAll()"
+  >
+  <h1 *ngIf="!selectedAll">Choose all</h1>
+  <h1 *ngIf="selectedAll">Again</h1>
+  </button>
+  <br />
 </div>

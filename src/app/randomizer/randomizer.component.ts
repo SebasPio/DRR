@@ -17,6 +17,7 @@ export class RandomizerComponent implements OnInit {
   isExecuted: boolean = false;
   question: string = '';
   numberSublocations: number = 5;
+  selectedAll:boolean = false;
   //LOCATION VARIABLES
   isLocationSelected: boolean = false;
   locationList: Location[] = [];
@@ -165,6 +166,14 @@ export class RandomizerComponent implements OnInit {
     setTimeout(() => {
       this.serviceAreaAnimationState = true;
     }, 1);
+  }
+
+  chooseAll(){
+    this.getLocationRandom();
+    this.getGropupRandom();
+    this.getVehicleByGroup();
+    this.getSurfaceWearRandom();
+    this.getServiceAreaRandom();
   }
 
 
