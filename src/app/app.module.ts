@@ -9,6 +9,7 @@ import { MaterialModule } from './material.module';
 import { FlexLayoutModule} from '@angular/flex-layout';
 import { RandomizerComponent } from './randomizer/randomizer.component';
 import { HomeComponent } from './home/home.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -24,7 +25,8 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

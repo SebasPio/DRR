@@ -30,6 +30,7 @@
         <hr />
         <mat-card-actions align="end">
           <button
+            [disabled]="disabledSelection"
             class="button-width"
             mat-raised-button
             color="primary"
@@ -42,6 +43,72 @@
       </mat-card-content>
     </mat-card>
 
+    <mat-card class="super-width">
+      <mat-card-title align="center"> WEATHER </mat-card-title>
+      <div *ngIf="!isWeatherSelected">
+        <mat-card-content align="center">
+          <div
+            fxLayout="row"
+            fxFill
+            fxLayoutAlign="center  center"
+            class="resultHeigth"
+          >
+            <img 
+            [@flip]="weatherAnimationState"
+              class="resultWidth"
+              *ngIf="true"
+              mat-card-image
+              src="{{ question }}"
+            />
+          </div>
+          <mat-card-subtitle align="center">
+            <h1>'Empty'</h1>
+          </mat-card-subtitle>
+          <hr />
+          <mat-card-actions align="end">
+            <button
+              [disabled]="disabledSelection"
+              class="button-width"
+              mat-raised-button
+              color="primary"
+              (click)="getWeatherByLocation()"
+            >
+              <h1>Choose Time of day / Conditions</h1>
+            </button>
+          </mat-card-actions>
+        </mat-card-content>
+      </div>
+
+      <div *ngIf="isWeatherSelected">
+        <div
+          class="heigth-list"
+          *ngFor="let item of weatherSelected; let indice = index"
+        >
+          <mat-card-subtitle [@flip]="weatherAnimationState" align="center">
+            <h2>{{ indice + 1 }} - {{ item.weatherName }}</h2>
+          </mat-card-subtitle>
+        </div>
+        <mat-card-content>
+          <hr />
+          <mat-card-actions align="end">
+            <button
+              [disabled]="disabledSelection"
+              class="button-width"
+              mat-raised-button
+              color="primary"
+              (click)="getWeatherByLocation()"
+            >
+              <h1>Again</h1>
+            </button>
+          </mat-card-actions>
+        </mat-card-content>
+      </div>
+    </mat-card>
+  </div>
+
+  <br />
+
+  <div fxLayout="row" fxFill fxLayoutAlign="space-around  center">
     <mat-card class="card-width">
       <mat-card-title align="center"> GROUP </mat-card-title>
       <br />
@@ -51,7 +118,7 @@
             [@flip]="groupAnimationState"
             *ngIf="isGroupSelected"
             mat-card-image
-            src="../../assets/images/carsquare.jpg"
+            src="{{ groupSelected.groupImageUrlWebp }}"
           />
           <img *ngIf="!isGroupSelected" mat-card-image src="{{ question }}" />
           <mat-card-subtitle align="center">
@@ -63,6 +130,7 @@
         <hr />
         <mat-card-actions align="end">
           <button
+            [disabled]="disabledSelection"
             class="button-width"
             mat-raised-button
             color="primary"
@@ -105,6 +173,7 @@
         <hr />
         <mat-card-actions align="end">
           <button
+            [disabled]="disabledSelection"
             class="button-width"
             mat-raised-button
             color="primary"
@@ -112,37 +181,6 @@
           >
             <h1 *ngIf="!isVehicleSelected">Choose vehicle</h1>
             <h1 *ngIf="isVehicleSelected">Again</h1>
-          </button>
-        </mat-card-actions>
-      </mat-card-content>
-    </mat-card>
-  </div>
-
-  <br />
-
-  <div fxLayout="row" fxFill fxLayoutAlign="space-around  center">
-    <mat-card class="card-width">
-      <mat-card-title align="center"> WEATHER </mat-card-title>
-      <br />
-      <mat-card-content align="center">
-        <div class="resultHeigth">
-          <img
-            *ngIf="false"
-            mat-card-image
-            src="../../assets/images/locationsquare.jpg"
-          />
-          <img *ngIf="true" mat-card-image src="{{ question }}" />
-          <mat-card-subtitle>
-            <h1>
-              {{ true == true ? locationSelected.locationName : "Empty" }}
-            </h1>
-          </mat-card-subtitle>
-        </div>
-        <hr />
-        <mat-card-actions align="end">
-          <button class="button-width" mat-raised-button color="primary">
-            <h1 *ngIf="true">Choose weather</h1>
-            <h1 *ngIf="false">Again</h1>
           </button>
         </mat-card-actions>
       </mat-card-content>
@@ -162,6 +200,7 @@
           <hr />
           <mat-card-actions align="end">
             <button
+              [disabled]="disabledSelection"
               class="button-width"
               mat-raised-button
               color="primary"
@@ -186,6 +225,7 @@
           <hr />
           <mat-card-actions align="end">
             <button
+              [disabled]="disabledSelection"
               class="button-width"
               mat-raised-button
               color="primary"
@@ -214,6 +254,7 @@
           <hr />
           <mat-card-actions align="end">
             <button
+              [disabled]="disabledSelection"
               class="button-width"
               mat-raised-button
               color="primary"
@@ -238,6 +279,7 @@
           <hr />
           <mat-card-actions align="end">
             <button
+              [disabled]="disabledSelection"
               class="button-width"
               mat-raised-button
               color="primary"
@@ -251,14 +293,18 @@
     </mat-card>
   </div>
   <br />
-    <button
+
+  <div fxLayout="row" fxFill fxLayoutAlign="space-around  center"></div>
+  <br />
+  <button
+    [disabled]="disabledSelection"
     class="button-width"
     mat-raised-button
     color="primary"
     (click)="chooseAll()"
   >
-  <h1 *ngIf="!selectedAll">Choose all</h1>
-  <h1 *ngIf="selectedAll">Again</h1>
+    <h1 *ngIf="!selectedAll">Choose all</h1>
+    <h1 *ngIf="selectedAll">Again</h1>
   </button>
   <br />
 </div>

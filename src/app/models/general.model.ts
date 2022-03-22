@@ -17,13 +17,13 @@ export class Groups{
     groupId: number;
     groupName: string;
     groupProbability: number;
-    groupImageUrl: string;
+    groupImageUrlWebp: string;
 
     constructor(){
         this.groupId = 0,
         this.groupName = '',
         this.groupProbability = 1,
-        this.groupImageUrl = ''
+        this.groupImageUrlWebp = ''
     }
 }
 
@@ -67,5 +67,19 @@ export class ServiceArea{
         this.serviceAreaName = '';
         this.serviceAreaProbability = 1;
         this.serviceAreaImageUrl = '';
+    }
+}
+
+export class Weather{
+    weatherId: number;
+    weatherName: string;
+    weatherProbability: number;
+    locationId: number;
+
+    constructor(){
+        this.weatherId = 0;
+        this.weatherName = '';
+        this.weatherProbability = 1;
+        this.locationId = 0;
     }
 }

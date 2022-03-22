@@ -1,7 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { Groups, ServiceArea, Location , SurfaceWear, Vehicle } from '../models/general.model';
-import { DataSetService } from '../../assets/data/data-set.service'
-import { fadeInOnEnterAnimation, fadeOutOnLeaveAnimation, flipAnimation } from 'angular-animations';
+import {
+  Groups,
+  ServiceArea,
+  Location,
+  SurfaceWear,
+  Vehicle,
+  Weather,
+} from '../models/general.model';
+import { DataSetService } from '../../assets/data/data-set.service';
+import {
+  fadeInOnEnterAnimation,
+  fadeOutOnLeaveAnimation,
+  flipAnimation,
+} from 'angular-animations';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-randomizer',
@@ -11,13 +23,14 @@ import { fadeInOnEnterAnimation, fadeOutOnLeaveAnimation, flipAnimation } from '
     fadeInOnEnterAnimation(),
     fadeOutOnLeaveAnimation(),
     flipAnimation(),
-  ]
+  ],
 })
 export class RandomizerComponent implements OnInit {
+  disabledSelection: boolean = false;
   isExecuted: boolean = false;
   question: string = '';
   numberSublocations: number = 5;
-  selectedAll:boolean = false;
+  selectedAll: boolean = false;
   //LOCATION VARIABLES
   isLocationSelected: boolean = false;
   locationList: Location[] = [];
@@ -28,24 +41,33 @@ export class RandomizerComponent implements OnInit {
   groupList: Groups[] = [];
   groupSelected: Groups = new Groups();
   groupAnimationState = false;
+  groupLoading: number = 0;
   //SURFACEWEAR VARIABLES
   isSurfaceWearSelected: boolean = false;
   surfaceWearList: SurfaceWear[] = [];
   surfaceWearSelected: SurfaceWear[] = [];
   surfaceWearAnimationState = false;
+  surfaceWearLoading: number = 0;
   //VEHICLE
   isVehicleSelected: boolean = false;
   vehicleList: Vehicle[] = [];
   vehicleSelected: Vehicle = new Vehicle();
   vehicleAnimationState = false;
+  vehicleLoading: number = 0;
   //SERVICEAREA
   isServiceAreaSelected: boolean = false;
   serviceAreaList: ServiceArea[] = [];
   serviceAreaSelected: ServiceArea[] = [];
   serviceAreaAnimationState = false;
-  
-  constructor(private dataService: DataSetService) { }
+  serviceAreaLoading: number = 0;
+  //Weather
+  isWeatherSelected: boolean = false;
+  weatherList: Weather[] = [];
+  weatherSelected: Weather[] = [];
+  weatherAnimationState = false;
+  weatherLoading: number = 0;
 
+  constructor(private dataService: DataSetService) {}
 
   ngOnInit(): void {
     this.locationList = this.dataService.getLocations();
@@ -56,111 +78,196 @@ export class RandomizerComponent implements OnInit {
     console.log(this.locationList);
   }
 
-  getImagesUri(){
+  getImagesUri() {
     this.question = this.dataService.getQuestion();
   }
 
-  getRandom(min: number, max: number): number{
-    return Math.floor((Math.random() * max) + min);
+  getRandom(min: number, max: number): number {
+    return Math.floor(Math.random() * max + min);
   }
 
-  execute(){
+  execute() {
     this.isExecuted = true;
-    new Promise(f => setTimeout(f, 1000)).then(()=>{
+    new Promise((f) => setTimeout(f, 1000)).then(() => {
       window.scroll({
         top: 320,
         left: 100,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     });
   }
 
-  getLocationRandom(){
-    let rand = this.getRandom(0,13);
-    this.locationSelected = this.locationList[rand]
+  async getLocationRandom() {
+    this.disabledSelection = true;
+    let rand = this.getRandom(0, 13);
+    this.locationSelected = this.locationList[rand];
     this.isLocationSelected = true;
-    this.locationAnimate();
+    for (let index = 0; index < 13; index++) {
+      this.locationAnimate();
+      let rand = this.getRandom(0, 13);
+      this.locationSelected = this.locationList[rand];
+      await new Promise((f) => setTimeout(f, 20 * index));
+    }
+    if (this.isWeatherSelected) {
+      this.isWeatherSelected = false;
+      this.weatherAnimate();
+    }
+    this.disabledSelection = false;
   }
 
-  getGropupRandom(){
-    let rand = this.getRandom(0,13);
-    this.groupSelected = this.groupList[rand]
+  async getGropupRandom() {
+    this.disabledSelection = true;
+    let rand = this.getRandom(0, 13);
+    this.groupSelected = this.groupList[rand];
     this.isGroupSelected = true;
+    for (let index = 0; index < 13; index++) {
+      this.groupAnimate();
+      let rand = this.getRandom(0, 13);
+      this.groupSelected = this.groupList[rand];
+      await new Promise((f) => setTimeout(f, 20 * index));
+    }
     this.groupAnimate();
-    if(this.isVehicleSelected){
+    if (this.isVehicleSelected) {
       this.isVehicleSelected = false;
       this.vehicleAnimate();
     }
+    this.disabledSelection = false;
   }
 
-  getSurfaceWearRandom(){
+  async getSurfaceWearRandom() {
+    this.disabledSelection = true;
     this.surfaceWearSelected = [];
-    for (let index = 0; index < this.numberSublocations; index++) {
-      let rand = this.getRandom(0,5);
-      this.surfaceWearSelected.push(this.surfaceWearList[rand])
-    }
+    let rand = this.getRandom(0, 5);
     this.isSurfaceWearSelected = true;
-    this.surfaceWearAnimate();
+
+    for (let index = 0; index < 13; index++) {
+      this.surfaceWearSelected = [];
+      for (let index = 0; index < this.numberSublocations; index++) {
+        this.surfaceWearAnimate();
+        let rand = this.getRandom(0, 5);
+        this.surfaceWearSelected.push(this.surfaceWearList[rand]);
+      }
+      await new Promise((f) => setTimeout(f, 10 * index));
+    }
+    this.disabledSelection = false;
   }
 
-  getVehicleByGroup(){
+  async getVehicleByGroup() {
+    this.disabledSelection = true;
     this.vehicleList = [];
-    if(this.groupSelected == null || this.groupSelected == undefined){
+    if (this.groupSelected == null || this.groupSelected == undefined) {
+      this.disabledSelection = false;
       return;
-    }
-    else if(this.groupSelected.groupId == 0){
+    } else if (this.groupSelected.groupId == 0) {
+      this.disabledSelection = false;
       return;
+    } else {
+      this.vehicleList = this.dataService.getVehicleByGroup(
+        this.groupSelected.groupId
+      );
+
+      let rand = this.getRandom(0, this.vehicleList.length);
+      this.vehicleSelected = this.vehicleList[rand];
+      this.isVehicleSelected = true;
+      for (let index = 0; index < 13; index++) {
+        this.vehicleAnimate();
+        let rand = this.getRandom(0, this.vehicleList.length);
+        this.vehicleSelected = this.vehicleList[rand];
+        await new Promise((f) => setTimeout(f, 20 * index));
+      }
     }
-    else{
-      this.vehicleList =  this.dataService.getVehicleByGroup(this.groupSelected.groupId);
-      console.log(this.vehicleList.length)
-       let rand = this.getRandom(0,this.vehicleList.length);
-       console.log(this.vehicleList[rand])
-       this.vehicleSelected = this.vehicleList[rand]
-       this.isVehicleSelected = true;
-    }
-    this.vehicleAnimate();
+    this.disabledSelection = false;
   }
 
-  getServiceAreaRandom(){
-    this.serviceAreaSelected = [];
-    for (let index = 0; index < this.numberSublocations; index++) {
-      let rand = this.getRandom(0,4);
-      this.serviceAreaSelected.push(this.serviceAreaList[rand])
+  async getWeatherByLocation() {
+    this.disabledSelection = true;
+    this.weatherList = [];
+    if (this.isLocationSelected == null || this.locationSelected == undefined) {
+      this.disabledSelection = false;
+      return;
+    } else if (this.locationSelected.locationId == 0) {
+      this.disabledSelection = false;
+      return;
+    } else {
+      console.log(this.locationSelected.locationId);
+      this.weatherList = this.dataService.getWeatherByLocation(
+        this.locationSelected.locationId
+      );      
+      this.isWeatherSelected = true;
+      for (let index = 0; index < 13; index++) {
+        this.weatherSelected = [];
+        this.weatherAnimate();
+        for (let index = 0; index < this.numberSublocations; index++) {
+          let rand = this.getRandom(0, this.weatherList.length);
+          this.weatherSelected.push(this.weatherList[rand]);
+        }
+        await new Promise((f) => setTimeout(f, 10 * index));
+      }
+      this.disabledSelection = false;
     }
-    this.isServiceAreaSelected = true;
-    this.serviceAreaAnimate();
   }
-  
-  
+
+  async getServiceAreaRandom() {
+    this.disabledSelection = true;
+    this.serviceAreaSelected = [];
+
+    this.isServiceAreaSelected = true;
+    for (let index = 0; index < 13; index++) {
+      this.serviceAreaSelected = [];
+      this.serviceAreaAnimate();
+      for (let index = 0; index < this.numberSublocations; index++) {
+        let rand = this.getRandom(0, 5);
+        this.serviceAreaSelected.push(this.serviceAreaList[rand]);
+      }
+      await new Promise((f) => setTimeout(f, 10 * index));
+    }
+
+    if (this.serviceAreaSelected[0].serviceAreaId < 3) {
+      this.serviceAreaAnimate();
+      let rand = this.getRandom(2, 3);
+      this.serviceAreaSelected[0] = this.serviceAreaList[rand];
+    }
+
+    this.disabledSelection = false;
+  }
+
   locationAnimate() {
+    console.log('locations animate');
     this.locationAnimationState = false;
     setTimeout(() => {
       this.locationAnimationState = true;
     }, 1);
   }
-  
+
+  weatherAnimate() {
+    console.log('weather animate');
+    this.weatherAnimationState = false;
+    setTimeout(() => {
+      this.weatherAnimationState = true;
+    }, 1);
+  }
+
   groupAnimate() {
     this.groupAnimationState = false;
     setTimeout(() => {
       this.groupAnimationState = true;
     }, 1);
   }
-  
+
   surfaceWearAnimate() {
     this.surfaceWearAnimationState = false;
     setTimeout(() => {
       this.surfaceWearAnimationState = true;
     }, 1);
   }
-  
+
   vehicleAnimate() {
     this.vehicleAnimationState = false;
     setTimeout(() => {
       this.vehicleAnimationState = true;
     }, 1);
   }
-  
+
   serviceAreaAnimate() {
     this.serviceAreaAnimationState = false;
     setTimeout(() => {
@@ -168,13 +275,14 @@ export class RandomizerComponent implements OnInit {
     }, 1);
   }
 
-  chooseAll(){
-    this.getLocationRandom();
-    this.getGropupRandom();
-    this.getVehicleByGroup();
+  chooseAll() {
+    this.getLocationRandom().then(()=>{
+      this.getWeatherByLocation();
+    });
+    this.getGropupRandom().then(() => {
+      this.getVehicleByGroup();
+    });
     this.getSurfaceWearRandom();
     this.getServiceAreaRandom();
   }
-
-
 }

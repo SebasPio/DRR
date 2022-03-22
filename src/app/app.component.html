@@ -6,21 +6,35 @@
   </mat-card>
   <app-randomizer></app-randomizer>
 </main> -->
-
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v13.0" nonce="GMv6M00r"></script>
 <p>
   <mat-toolbar align="center">
     <div style="cursor:pointer;" routerLink="/home" value="home">
     <h1>TORNEO DE DIRT RALLY BY EUROLATAM</h1>
     </div>
     <div class="example-spacer"></div>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="facebook" (click)="facebookLink()">
+      <fa-icon [icon]="faFacebook" [size]="sizeButton"></fa-icon>
+    </button>&nbsp;&nbsp;&nbsp;
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="facebook"  (click)="instagramLink()">
+      <fa-icon [icon]="faInstagram" [size]="sizeButton"></fa-icon>
+    </button>&nbsp;&nbsp;&nbsp;
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="facebook" (click)="twitterLink()">
+      <fa-icon [icon]="faTwitter" [size]="sizeButton"></fa-icon>
+    </button>&nbsp;&nbsp;&nbsp;
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="facebook" (click)="twitchLink()">
+      <fa-icon [icon]="faTwitch" [size]="sizeButton"></fa-icon>
+    </button>&nbsp;&nbsp;&nbsp;
+    <div class="example-spacer"></div>
     <mat-button-toggle-group name="route-toggle" #group="matButtonToggleGroup" aria-label="Favorite Color">
       <mat-button-toggle routerLink="/randomizer" value="randomizer" (click)="menuSelected(group)">
         <span>Selector de etapas</span>
       </mat-button-toggle>
-      <mat-button-toggle value="about" (click)="menuSelected(group)">
+      <!-- <mat-button-toggle value="about" (click)="menuSelected(group)">
         <span>Acerca de</span>
-      </mat-button-toggle>
-    </mat-button-toggle-group>
+      </mat-button-toggle> -->
+    </mat-button-toggle-group>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </mat-toolbar>
   <router-outlet></router-outlet>
 </p>

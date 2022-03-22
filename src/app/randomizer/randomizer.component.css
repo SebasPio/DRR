@@ -27,6 +27,13 @@
 .resultHeigth{
       height: 28em;
 }
+.resultWidth{
+      width: 24em;
+}
+
+.super-width{
+      width: 60em;;
+}
 
 .imgback{
       color: #FE7F88;
