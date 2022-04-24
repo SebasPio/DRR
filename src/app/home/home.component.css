@@ -1,0 +1,33 @@
+.card-width{
+    width: 20em;
+}
+.card-heigth{
+    height: 20em;
+}
+.background-images{
+    /* background-image: url('../../assets/images/others/background.jpg'); */
+    background-image: url('../../assets/images/others/countdown.jpg');
+     background-size: cover;
+}
+
+.position-card{
+    position: absolute;
+}
+
+.heigth-full{
+    /* height: 90vh; */
+    height: 90vh;
+}
+
+.width-full{
+    /* height: 90vh; */
+    height: 100%;
+}
+
+.heigth-col{
+    height: 50vh;
+}
+
+.background-invisible{ 
+    background-color: rgba(51, 170, 51, .1);
+} 

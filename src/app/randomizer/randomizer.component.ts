@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   Groups,
   ServiceArea,
@@ -14,6 +14,7 @@ import {
   flipAnimation,
 } from 'angular-animations';
 import { delay } from 'rxjs';
+import { MatAccordion } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-randomizer',
@@ -25,12 +26,14 @@ import { delay } from 'rxjs';
     flipAnimation(),
   ],
 })
+
 export class RandomizerComponent implements OnInit {
   disabledSelection: boolean = false;
   isExecuted: boolean = false;
   question: string = '';
   numberSublocations: number = 5;
   selectedAll: boolean = false;
+  nonePercent = 50;
   //LOCATION VARIABLES
   isLocationSelected: boolean = false;
   locationList: Location[] = [];
@@ -57,6 +60,7 @@ export class RandomizerComponent implements OnInit {
   //SERVICEAREA
   isServiceAreaSelected: boolean = false;
   serviceAreaList: ServiceArea[] = [];
+  serviceAreaListNotNone: ServiceArea[] = [];
   serviceAreaSelected: ServiceArea[] = [];
   serviceAreaAnimationState = false;
   serviceAreaLoading: number = 0;
@@ -73,9 +77,21 @@ export class RandomizerComponent implements OnInit {
     this.locationList = this.dataService.getLocations();
     this.groupList = this.dataService.getGroups();
     this.surfaceWearList = this.dataService.getSurfaceWear();
-    this.serviceAreaList = this.dataService.getServiceArea();
+    this.serviceAreaListNotNone = this.dataService.getServiceAreaWithoutNone();
+    this.serviceAreaList = this.dataService.getServiceAreaByNonePercen(this.nonePercent);
     this.getImagesUri();
     console.log(this.locationList);
+  }
+
+  changeSlider(event: any){
+    console.log(event.value);
+    this.nonePercent = event.value;
+    this.serviceAreaList = [];
+    this.serviceAreaList = this.dataService.getServiceAreaByNonePercen(event.value);
+  }
+
+  formatLabel(value: number) {
+      return value + '%';
   }
 
   getImagesUri() {
@@ -214,20 +230,17 @@ export class RandomizerComponent implements OnInit {
     this.isServiceAreaSelected = true;
     for (let index = 0; index < 13; index++) {
       this.serviceAreaSelected = [];
-      this.serviceAreaAnimate();
-      for (let index = 0; index < this.numberSublocations; index++) {
-        let rand = this.getRandom(0, 5);
+      this.serviceAreaAnimate()
+
+      let rand = this.getRandom(0, this.serviceAreaListNotNone.length);
+      this.serviceAreaSelected.push(this.serviceAreaListNotNone[rand])
+
+      for (let i = 0; i < this.numberSublocations-1; i++) {
+        let rand = this.getRandom(0, this.serviceAreaList.length);
         this.serviceAreaSelected.push(this.serviceAreaList[rand]);
       }
       await new Promise((f) => setTimeout(f, 10 * index));
     }
-
-    if (this.serviceAreaSelected[0].serviceAreaId < 3) {
-      this.serviceAreaAnimate();
-      let rand = this.getRandom(2, 3);
-      this.serviceAreaSelected[0] = this.serviceAreaList[rand];
-    }
-
     this.disabledSelection = false;
   }
 

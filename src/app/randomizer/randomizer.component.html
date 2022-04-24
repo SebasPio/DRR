@@ -6,36 +6,23 @@
       <br />
       <mat-card-content align="center">
         <div class="resultHeigth">
-          <img
-            [@flip]="locationAnimationState"
-            *ngIf="isLocationSelected"
-            mat-card-image
-            src="{{ locationSelected.locationImageUrlWebp }}"
-          />
-          <img
-            *ngIf="!isLocationSelected"
-            mat-card-image
-            src="{{ question }}"
-          />
+          <img [@flip]="locationAnimationState" *ngIf="isLocationSelected" mat-card-image
+            src="{{ locationSelected.locationImageUrlWebp }}" />
+          <img *ngIf="!isLocationSelected" mat-card-image src="{{ question }}" />
           <mat-card-subtitle>
             <h1>
               {{
-                isLocationSelected == true
-                  ? locationSelected.locationName
-                  : "Empty"
+              isLocationSelected == true
+              ? locationSelected.locationName
+              : "Empty"
               }}
             </h1>
           </mat-card-subtitle>
         </div>
         <hr />
         <mat-card-actions align="end">
-          <button
-            [disabled]="disabledSelection"
-            class="button-width"
-            mat-raised-button
-            color="primary"
-            (click)="getLocationRandom()"
-          >
+          <button [disabled]="disabledSelection" class="button-width" mat-raised-button color="primary"
+            (click)="getLocationRandom()">
             <h1 *ngIf="!isLocationSelected">Choose location</h1>
             <h1 *ngIf="isLocationSelected">Again</h1>
           </button>
@@ -47,32 +34,16 @@
       <mat-card-title align="center"> WEATHER </mat-card-title>
       <div *ngIf="!isWeatherSelected">
         <mat-card-content align="center">
-          <div
-            fxLayout="row"
-            fxFill
-            fxLayoutAlign="center  center"
-            class="resultHeigth"
-          >
-            <img 
-            [@flip]="weatherAnimationState"
-              class="resultWidth"
-              *ngIf="true"
-              mat-card-image
-              src="{{ question }}"
-            />
+          <div fxLayout="row" fxFill fxLayoutAlign="center  center" class="resultHeigth">
+            <img [@flip]="weatherAnimationState" class="resultWidth" *ngIf="true" mat-card-image src="{{ question }}" />
           </div>
           <mat-card-subtitle align="center">
             <h1>'Empty'</h1>
           </mat-card-subtitle>
           <hr />
           <mat-card-actions align="end">
-            <button
-              [disabled]="disabledSelection"
-              class="button-width"
-              mat-raised-button
-              color="primary"
-              (click)="getWeatherByLocation()"
-            >
+            <button [disabled]="disabledSelection" class="button-width" mat-raised-button color="primary"
+              (click)="getWeatherByLocation()">
               <h1>Choose Time of day / Conditions</h1>
             </button>
           </mat-card-actions>
@@ -80,10 +51,7 @@
       </div>
 
       <div *ngIf="isWeatherSelected">
-        <div
-          class="heigth-list"
-          *ngFor="let item of weatherSelected; let indice = index"
-        >
+        <div class="heigth-list" *ngFor="let item of weatherSelected; let indice = index">
           <mat-card-subtitle [@flip]="weatherAnimationState" align="center">
             <h2>{{ indice + 1 }} - {{ item.weatherName }}</h2>
           </mat-card-subtitle>
@@ -91,13 +59,8 @@
         <mat-card-content>
           <hr />
           <mat-card-actions align="end">
-            <button
-              [disabled]="disabledSelection"
-              class="button-width"
-              mat-raised-button
-              color="primary"
-              (click)="getWeatherByLocation()"
-            >
+            <button [disabled]="disabledSelection" class="button-width" mat-raised-button color="primary"
+              (click)="getWeatherByLocation()">
               <h1>Again</h1>
             </button>
           </mat-card-actions>
@@ -114,12 +77,8 @@
       <br />
       <mat-card-content>
         <div class="resultHeigth">
-          <img
-            [@flip]="groupAnimationState"
-            *ngIf="isGroupSelected"
-            mat-card-image
-            src="{{ groupSelected.groupImageUrlWebp }}"
-          />
+          <img [@flip]="groupAnimationState" *ngIf="isGroupSelected" mat-card-image
+            src="{{ groupSelected.groupImageUrlWebp }}" />
           <img *ngIf="!isGroupSelected" mat-card-image src="{{ question }}" />
           <mat-card-subtitle align="center">
             <h1>
@@ -129,13 +88,8 @@
         </div>
         <hr />
         <mat-card-actions align="end">
-          <button
-            [disabled]="disabledSelection"
-            class="button-width"
-            mat-raised-button
-            color="primary"
-            (click)="getGropupRandom()"
-          >
+          <button [disabled]="disabledSelection" class="button-width" mat-raised-button color="primary"
+            (click)="getGropupRandom()">
             <h1 *ngIf="!isGroupSelected">Choose group</h1>
             <h1 *ngIf="isGroupSelected">Again</h1>
           </button>
@@ -148,37 +102,23 @@
       <br />
       <mat-card-content>
         <div class="resultHeigth">
-          <img
-            [@flip]="vehicleAnimationState"
-            *ngIf="isVehicleSelected"
-            mat-card-image
-            src="{{ vehicleSelected.vehicleImageUrlWebp }}"
-          />
-          <img
-            [@flip]="vehicleAnimationState"
-            *ngIf="!isVehicleSelected"
-            mat-card-image
-            src="{{ question }}"
-          />
+          <img [@flip]="vehicleAnimationState" *ngIf="isVehicleSelected" mat-card-image
+            src="{{ vehicleSelected.vehicleImageUrlWebp }}" />
+          <img [@flip]="vehicleAnimationState" *ngIf="!isVehicleSelected" mat-card-image src="{{ question }}" />
           <mat-card-subtitle align="center">
             <h1>
               {{
-                isVehicleSelected == true
-                  ? vehicleSelected.vehicleName
-                  : "Empty"
+              isVehicleSelected == true
+              ? vehicleSelected.vehicleName
+              : "Empty"
               }}
             </h1>
           </mat-card-subtitle>
         </div>
         <hr />
         <mat-card-actions align="end">
-          <button
-            [disabled]="disabledSelection"
-            class="button-width"
-            mat-raised-button
-            color="primary"
-            (click)="getVehicleByGroup()"
-          >
+          <button [disabled]="disabledSelection" class="button-width" mat-raised-button color="primary"
+            (click)="getVehicleByGroup()">
             <h1 *ngIf="!isVehicleSelected">Choose vehicle</h1>
             <h1 *ngIf="isVehicleSelected">Again</h1>
           </button>
@@ -199,13 +139,8 @@
           </div>
           <hr />
           <mat-card-actions align="end">
-            <button
-              [disabled]="disabledSelection"
-              class="button-width"
-              mat-raised-button
-              color="primary"
-              (click)="getSurfaceWearRandom()"
-            >
+            <button [disabled]="disabledSelection" class="button-width" mat-raised-button color="primary"
+              (click)="getSurfaceWearRandom()">
               <h1>Choose surface wear</h1>
             </button>
           </mat-card-actions>
@@ -213,10 +148,7 @@
       </div>
 
       <div *ngIf="isSurfaceWearSelected">
-        <div
-          class="heigth-list"
-          *ngFor="let item of surfaceWearSelected; let indice = index"
-        >
+        <div class="heigth-list" *ngFor="let item of surfaceWearSelected; let indice = index">
           <mat-card-subtitle [@flip]="surfaceWearAnimationState" align="center">
             <h2>{{ indice + 1 }} - {{ item.surfaceWearName }}</h2>
           </mat-card-subtitle>
@@ -224,13 +156,8 @@
         <mat-card-content>
           <hr />
           <mat-card-actions align="end">
-            <button
-              [disabled]="disabledSelection"
-              class="button-width"
-              mat-raised-button
-              color="primary"
-              (click)="getSurfaceWearRandom()"
-            >
+            <button [disabled]="disabledSelection" class="button-width" mat-raised-button color="primary"
+              (click)="getSurfaceWearRandom()">
               <h1>Again</h1>
             </button>
           </mat-card-actions>
@@ -253,13 +180,8 @@
           </div>
           <hr />
           <mat-card-actions align="end">
-            <button
-              [disabled]="disabledSelection"
-              class="button-width"
-              mat-raised-button
-              color="primary"
-              (click)="getServiceAreaRandom()"
-            >
+            <button [disabled]="disabledSelection" class="button-width" mat-raised-button color="primary"
+              (click)="getServiceAreaRandom()">
               <h1>Choose service area</h1>
             </button>
           </mat-card-actions>
@@ -267,10 +189,7 @@
       </div>
 
       <div *ngIf="isServiceAreaSelected">
-        <div
-          class="heigth-list"
-          *ngFor="let item of serviceAreaSelected; let indice = index"
-        >
+        <div class="heigth-list" *ngFor="let item of serviceAreaSelected; let indice = index">
           <mat-card-subtitle [@flip]="serviceAreaAnimationState" align="center">
             <h1>{{ indice + 1 }} - {{ item.serviceAreaName }}</h1>
           </mat-card-subtitle>
@@ -278,13 +197,8 @@
         <mat-card-content>
           <hr />
           <mat-card-actions align="end">
-            <button
-              [disabled]="disabledSelection"
-              class="button-width"
-              mat-raised-button
-              color="primary"
-              (click)="getServiceAreaRandom()"
-            >
+            <button [disabled]="disabledSelection" class="button-width" mat-raised-button color="primary"
+              (click)="getServiceAreaRandom()">
               <h1>Again</h1>
             </button>
           </mat-card-actions>
@@ -296,15 +210,44 @@
 
   <div fxLayout="row" fxFill fxLayoutAlign="space-around  center"></div>
   <br />
-  <button
-    [disabled]="disabledSelection"
-    class="button-width"
-    mat-raised-button
-    color="primary"
-    (click)="chooseAll()"
-  >
+  <button [disabled]="disabledSelection" class="button-width" mat-raised-button color="primary" (click)="chooseAll()">
     <h1 *ngIf="!selectedAll">Choose all</h1>
     <h1 *ngIf="selectedAll">Again</h1>
   </button>
   <br />
+  <br>
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Configurations </mat-panel-title>
+        <mat-panel-description>
+          ...
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+<hr><br>
+      <div fxLayout="row" fxFill fxLayoutAlign="space-around  center">
+        <h2>NONE probability (2 to 5)</h2>
+        <mat-slider class="super-width" [max]="100" [min]="0" [step]="10"
+          [displayWith]="formatLabel" [value]="50" [thumbLabel]="true" (change)="changeSlider($event)">
+        </mat-slider> <h2>Actual value: {{nonePercent}} </h2>
+      </div>
+<hr><br>
+      <div fxLayout="row" fxFill fxLayoutAlign="space-around  center">
+        <h1>Etapas:</h1>
+        </div>
+        <div fxLayout="row" fxFill fxLayoutAlign="space-around  center">
+        <mat-selection-list #location>
+          <mat-list-option *ngFor="let location of locationList">
+            {{location.locationName}}
+          </mat-list-option>
+        </mat-selection-list>
+
+
+      </div>
+
+      
+
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br>
 </div>

@@ -1271,24 +1271,18 @@ export class DataSetService {
     },
     {
       serviceAreaId: 2,
-      serviceAreaName: 'NONE',
-      serviceAreaProbability: 1,
-      serviceAreaImageUrl: '',
-    },
-    {
-      serviceAreaId: 3,
       serviceAreaName: 'SHORT',
       serviceAreaProbability: 1,
       serviceAreaImageUrl: '',
     },
     {
-      serviceAreaId: 4,
+      serviceAreaId: 3,
       serviceAreaName: 'MEDIUM',
       serviceAreaProbability: 1,
       serviceAreaImageUrl: '',
     },
     {
-      serviceAreaId: 5,
+      serviceAreaId: 4,
       serviceAreaName: 'LONG',
       serviceAreaProbability: 1,
       serviceAreaImageUrl: '',
@@ -1310,6 +1304,34 @@ export class DataSetService {
   getSurfaceWear() {
     return this.surfacesWearArray;
   }
+  
+  getServiceAreaWithoutNone() {
+    return this.serviceAreaArray.filter(x=>x.serviceAreaId != 1);
+  }
+
+  getServiceAreaByNonePercen(percent: number): ServiceArea[]{
+    let serviceArea: ServiceArea[] = [];
+    let treeCounter = 2;
+    for (let index = 0; index < 99; index++) {
+      if(index < percent){
+        let serv = this.serviceAreaArray.find(x=>x.serviceAreaName=='NONE');
+        if(serv){
+          serviceArea.push(serv)
+        }
+      }
+      else{
+        treeCounter++;
+        if(treeCounter > 4){
+          treeCounter = 2;
+        }
+        let serv = this.serviceAreaArray[treeCounter];
+        if(serv){
+          serviceArea.push(serv)
+        }
+      }      
+    }
+    return serviceArea;
+  }
 
 
   getVehicleByGroup(groupId: number): Vehicle[] {
@@ -1320,7 +1342,4 @@ export class DataSetService {
     return this.weatherArray.filter((x)=>x.locationId == locationId);
 }
 
-  getServiceArea() {
-    return this.serviceAreaArray;
-  }
 }
