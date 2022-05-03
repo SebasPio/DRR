@@ -33,7 +33,8 @@ export class RandomizerComponent implements OnInit {
   question: string = '';
   numberSublocations: number = 5;
   selectedAll: boolean = false;
-  nonePercent = 50;
+  nonePercent: number = 50;
+  randomQty: number = 13;
   //LOCATION VARIABLES
   isLocationSelected: boolean = false;
   locationList: Location[] = [];
@@ -113,15 +114,39 @@ export class RandomizerComponent implements OnInit {
     });
   }
 
+  locationCheckBox(event: Location){
+    let loc = this.locationList.find(x=>x.locationId == event.locationId);
+    if(loc){
+      loc.isAvailable = !loc.isAvailable;
+    }
+  }
+
+  groupCheckBox(event: Groups){
+    let grp = this.groupList.find(x=>x.groupId == event.groupId);
+    if(grp){
+      grp.isAvailable = !grp.isAvailable;
+    }
+  }
+
+  vehicleCheckBox(event: Vehicle){
+    let vcle = this.vehicleList.find(x=>x.vehicleId == event.vehicleId);
+    if(vcle){
+      vcle.isAvailable = !vcle.isAvailable;
+    }
+  }
+
   async getLocationRandom() {
     this.disabledSelection = true;
-    let rand = this.getRandom(0, 13);
+    let rand = this.getRandom(0, this.locationList.length);
     this.locationSelected = this.locationList[rand];
     this.isLocationSelected = true;
-    for (let index = 0; index < 13; index++) {
+    for (let index = 0; index < this.randomQty; index++) {
       this.locationAnimate();
-      let rand = this.getRandom(0, 13);
+      let rand = this.getRandom(0, this.locationList.length);
       this.locationSelected = this.locationList[rand];
+      if(!this.locationSelected.isAvailable && index == this.randomQty - 1){
+        index--;
+      }
       await new Promise((f) => setTimeout(f, 20 * index));
     }
     if (this.isWeatherSelected) {
@@ -133,20 +158,37 @@ export class RandomizerComponent implements OnInit {
 
   async getGropupRandom() {
     this.disabledSelection = true;
-    let rand = this.getRandom(0, 13);
+    let rand = this.getRandom(0, this.groupList.length);
     this.groupSelected = this.groupList[rand];
     this.isGroupSelected = true;
-    for (let index = 0; index < 13; index++) {
+    for (let index = 0; index < this.randomQty; index++) {
       this.groupAnimate();
-      let rand = this.getRandom(0, 13);
+      let rand = this.getRandom(0, this.groupList.length);
       this.groupSelected = this.groupList[rand];
       await new Promise((f) => setTimeout(f, 20 * index));
+      if(!this.groupSelected.isAvailable && index == this.randomQty - 1){
+        index--;
+      }
     }
     this.groupAnimate();
     if (this.isVehicleSelected) {
       this.isVehicleSelected = false;
       this.vehicleAnimate();
     }
+    
+    this.vehicleList = [];
+    if (this.groupSelected == null || this.groupSelected == undefined) {
+      this.disabledSelection = false;
+      return;
+    } else if (this.groupSelected.groupId == 0) {
+      this.disabledSelection = false;
+      return;
+    } else {
+      this.vehicleList = this.dataService.getVehicleByGroup(
+        this.groupSelected.groupId
+      );
+    }
+
     this.disabledSelection = false;
   }
 
@@ -156,7 +198,7 @@ export class RandomizerComponent implements OnInit {
     let rand = this.getRandom(0, 5);
     this.isSurfaceWearSelected = true;
 
-    for (let index = 0; index < 13; index++) {
+    for (let index = 0; index < this.randomQty; index++) {
       this.surfaceWearSelected = [];
       for (let index = 0; index < this.numberSublocations; index++) {
         this.surfaceWearAnimate();
@@ -170,7 +212,6 @@ export class RandomizerComponent implements OnInit {
 
   async getVehicleByGroup() {
     this.disabledSelection = true;
-    this.vehicleList = [];
     if (this.groupSelected == null || this.groupSelected == undefined) {
       this.disabledSelection = false;
       return;
@@ -178,18 +219,23 @@ export class RandomizerComponent implements OnInit {
       this.disabledSelection = false;
       return;
     } else {
+      if(this.vehicleList == []){
       this.vehicleList = this.dataService.getVehicleByGroup(
         this.groupSelected.groupId
       );
+      }
 
       let rand = this.getRandom(0, this.vehicleList.length);
       this.vehicleSelected = this.vehicleList[rand];
       this.isVehicleSelected = true;
-      for (let index = 0; index < 13; index++) {
+      for (let index = 0; index < this.randomQty; index++) {
         this.vehicleAnimate();
         let rand = this.getRandom(0, this.vehicleList.length);
         this.vehicleSelected = this.vehicleList[rand];
         await new Promise((f) => setTimeout(f, 20 * index));
+        if(!this.vehicleSelected.isAvailable && index == this.randomQty - 1){
+          index--;
+        }
       }
     }
     this.disabledSelection = false;
@@ -210,7 +256,7 @@ export class RandomizerComponent implements OnInit {
         this.locationSelected.locationId
       );      
       this.isWeatherSelected = true;
-      for (let index = 0; index < 13; index++) {
+      for (let index = 0; index < this.randomQty; index++) {
         this.weatherSelected = [];
         this.weatherAnimate();
         for (let index = 0; index < this.numberSublocations; index++) {
@@ -228,7 +274,7 @@ export class RandomizerComponent implements OnInit {
     this.serviceAreaSelected = [];
 
     this.isServiceAreaSelected = true;
-    for (let index = 0; index < 13; index++) {
+    for (let index = 0; index < this.randomQty; index++) {
       this.serviceAreaSelected = [];
       this.serviceAreaAnimate()
 

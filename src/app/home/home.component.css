@@ -4,11 +4,6 @@
 .card-heigth{
     height: 20em;
 }
-.background-images{
-    /* background-image: url('../../assets/images/others/background.jpg'); */
-    background-image: url('../../assets/images/others/countdown.jpg');
-     background-size: cover;
-}
 
 .position-card{
     position: absolute;

@@ -3,12 +3,14 @@ export class Location {
     locationName: string;
     locationProbability: number;
     locationImageUrlWebp: string;
+    isAvailable: boolean;
 
     constructor(){
         this.locationId = 0,
         this.locationName = '',
         this.locationProbability = 1,
         this.locationImageUrlWebp = '';
+        this.isAvailable = true;
     }
     
 }
@@ -18,12 +20,14 @@ export class Groups{
     groupName: string;
     groupProbability: number;
     groupImageUrlWebp: string;
+    isAvailable: boolean;
 
     constructor(){
         this.groupId = 0,
         this.groupName = '',
         this.groupProbability = 1,
-        this.groupImageUrlWebp = ''
+        this.groupImageUrlWebp = '',
+        this.isAvailable = true;
     }
 }
 
@@ -47,6 +51,7 @@ export class Vehicle{
     vehicleProbability: number;
     vehicleClassId: number;
     vehicleImageUrlWebp: string;
+    isAvailable: boolean;
 
     constructor(){
         this.vehicleId = 0;
@@ -54,6 +59,7 @@ export class Vehicle{
         this.vehicleProbability = 1;
         this.vehicleClassId = 0;
         this.vehicleImageUrlWebp = '';
+        this.isAvailable = true;
     }
 }
 export class ServiceArea{

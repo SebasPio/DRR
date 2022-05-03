@@ -37,78 +37,91 @@ export class DataSetService {
       locationName: 'MONTE CARLO - MONACO',
       locationProbability: 1,
       locationImageUrlWebp: '../assets/images/locations/MONACO.webp',
+      isAvailable: true,
     },
     {
       locationId: 2,
       locationName: 'POWYS - WALES',
       locationProbability: 1,
       locationImageUrlWebp: '../assets/images/locations/WALES.webp',
+      isAvailable: true,
     },
     {
       locationId: 3,
       locationName: 'ARGOLIS - GREECE',
       locationProbability: 1,
       locationImageUrlWebp: '../assets/images/locations/GREECE.webp',
+      isAvailable: true,
     },
     {
       locationId: 4,
       locationName: 'BAUMHOLDER - GERMANY',
       locationProbability: 1,
       locationImageUrlWebp: '../assets/images/locations/GERMANY.webp',
+      isAvailable: true,
     },
     {
       locationId: 5,
       locationName: 'JAMSA - FINLAND',
       locationProbability: 1,
       locationImageUrlWebp: '../assets/images/locations/FINLAND.webp',
+      isAvailable: true,
     },
     {
       locationId: 6,
       locationName: 'VARMLAND - SWEDEN',
       locationProbability: 1,
       locationImageUrlWebp: '../assets/images/locations/SWEDEN.webp',
+      isAvailable: true,
     },
     {
       locationId: 7,
       locationName: 'RIBADELLES - SPAIN',
       locationProbability: 1,
       locationImageUrlWebp: '../assets/images/locations/SPAIN.webp',
+      isAvailable: true,
     },
     {
       locationId: 8,
       locationName: 'MONARO - AUSTRALIA',
       locationProbability: 1,
       locationImageUrlWebp: '../assets/images/locations/AUSTRALIA.webp',
+      isAvailable: true,
     },
     {
       locationId: 9,
       locationName: 'HAWKES BAY - NEW ZELAND',
       locationProbability: 1,
       locationImageUrlWebp: '../assets/images/locations/NEW ZELAND.webp',
+      isAvailable: true,
     },
     {
       locationId: 10,
       locationName: 'CATAMARCA PROV. - ARGENTINA',
       locationProbability: 1,
       locationImageUrlWebp: '../assets/images/locations/ARGENTINA.webp',
+      isAvailable: true,
     },
     {
       locationId: 11,
       locationName: 'LECZNA COUNTY - POLAND',
       locationProbability: 1,
       locationImageUrlWebp: '../assets/images/locations/POLAND.webp',
+      isAvailable: true,
     },
     {
       locationId: 12,
       locationName: 'NEW ENGLAND - USA',
       locationProbability: 1,
       locationImageUrlWebp: '../assets/images/locations/USA.webp',
+      isAvailable: true,
     },
     {
       locationId: 13,
       locationName: 'PERTH AND KINROSS - SCOTLAND',
       locationProbability: 1,
       locationImageUrlWebp: '../assets/images/locations/SCOTLAND.webp',
+      isAvailable: true,
     },
   ];
 
@@ -752,78 +765,91 @@ export class DataSetService {
       groupName: 'H1',
       groupProbability: 1,
       groupImageUrlWebp: '../assets/images/groups/H1FWD.webp',
+      isAvailable: true,
     },
     {
       groupId: 2,
       groupName: 'H2 FWD',
       groupProbability: 1,
       groupImageUrlWebp: '../assets/images/groups/H2FWD.webp',
+      isAvailable: true,
     },
     {
       groupId: 3,
       groupName: 'H2 RWD',
       groupProbability: 1,
       groupImageUrlWebp: '../assets/images/groups/H2.webp',
+      isAvailable: true,
     },
     {
       groupId: 4,
       groupName: 'H3',
       groupProbability: 1,
       groupImageUrlWebp: '../assets/images/groups/H3.webp',
+      isAvailable: true,
     },
     {
       groupId: 5,
       groupName: 'KIT CAR',
       groupProbability: 1,
       groupImageUrlWebp: '../assets/images/groups/KITCAR.webp',
+      isAvailable: true,
     },
     {
       groupId: 6,
       groupName: 'GROUP A',
       groupProbability: 1,
       groupImageUrlWebp: '../assets/images/groups/GROUPA.webp',
+      isAvailable: true,
     },
     {
       groupId: 7,
       groupName: 'GROUP B RDW',
       groupProbability: 1,
       groupImageUrlWebp: '../assets/images/groups/GROUPBRWD.webp',
+      isAvailable: true,
     },
     {
       groupId: 8,
       groupName: 'GROUP B 4X4',
       groupProbability: 1,
       groupImageUrlWebp: '../assets/images/groups/GROUPB4WD.webp',
+      isAvailable: true,
     },
     {
       groupId: 9,
       groupName: 'R2',
       groupProbability: 1,
       groupImageUrlWebp: '../assets/images/groups/R2.webp',
+      isAvailable: true,
     },
     {
       groupId: 10,
       groupName: 'NR4',
       groupProbability: 1,
       groupImageUrlWebp: '../assets/images/groups/NR4.webp',
+      isAvailable: true,
     },
     {
       groupId: 11,
       groupName: 'R5',
       groupProbability: 1,
       groupImageUrlWebp: '../assets/images/groups/R5.webp',
+      isAvailable: true,
     },
     {
       groupId: 12,
       groupName: '2000CC',
       groupProbability: 1,
       groupImageUrlWebp: '../assets/images/groups/2000CC.webp',
+      isAvailable: true,
     },
     {
       groupId: 13,
       groupName: 'RALLY GT',
       groupProbability: 1,
       groupImageUrlWebp: '../assets/images/groups/RALLYGT.webp',
+      isAvailable: true,
     },
   ];
 
@@ -833,399 +859,456 @@ export class DataSetService {
       vehicleName: 'MINI COOPER S',
       vehicleProbability: 1,
       vehicleClassId: 1,
-      vehicleImageUrlWebp: '../assets/images/vehicles/H1/MINI.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/H1/MINI.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 2,
       vehicleName: 'DS AUTOMOBILES DS 21',
       vehicleProbability: 1,
       vehicleClassId: 1,
-      vehicleImageUrlWebp: '../assets/images/vehicles/H1/DS21.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/H1/DS21.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 3,
       vehicleName: 'LANCIA FULVIA HF',
       vehicleProbability: 1,
       vehicleClassId: 1,
-      vehicleImageUrlWebp: '../assets/images/vehicles/H1/FULVIA.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/H1/FULVIA.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 4,
       vehicleName: 'VOLKSWAGEN GOLF GTI 16V',
       vehicleProbability: 1,
       vehicleClassId: 2,
-      vehicleImageUrlWebp: '../assets/images/vehicles/H2FWD/GTI16V.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/H2FWD/GTI16V.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 5,
       vehicleName: 'PEUGEOT 205 GTI',
       vehicleProbability: 1,
       vehicleClassId: 2,
-      vehicleImageUrlWebp: '../assets/images/vehicles/H2FWD/205GTI.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/H2FWD/205GTI.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 6,
       vehicleName: 'FORD  ESCORT MKII',
       vehicleProbability: 1,
       vehicleClassId: 3,
-      vehicleImageUrlWebp: '../assets/images/vehicles/H2RWD/ESCORTMKII.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/H2RWD/ESCORTMKII.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 7,
       vehicleName: 'RENAULT ALPINE  A110 1600 S',
       vehicleProbability: 1,
       vehicleClassId: 3,
-      vehicleImageUrlWebp: '../assets/images/vehicles/H2RWD/A110.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/H2RWD/A110.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 8,
       vehicleName: 'FIAT 131 ABARTH RALLY',
       vehicleProbability: 1,
       vehicleClassId: 3,
-      vehicleImageUrlWebp: '../assets/images/vehicles/H2RWD/ABARTH.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/H2RWD/ABARTH.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 9,
       vehicleName: 'OPEL KADETT C GT / E',
       vehicleProbability: 1,
       vehicleClassId: 3,
-      vehicleImageUrlWebp: '../assets/images/vehicles/H2RWD/KADETT.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/H2RWD/KADETT.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 10,
       vehicleName: 'BMW E30 M3 EVO RALLY',
       vehicleProbability: 1,
       vehicleClassId: 4,
-      vehicleImageUrlWebp: '../assets/images/vehicles/H3/BMWE30.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/H3/BMWE30.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 11,
       vehicleName: 'OPEL ASCONA 400',
       vehicleProbability: 1,
       vehicleClassId: 4,
-      vehicleImageUrlWebp: '../assets/images/vehicles/H3/ASCONA400.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/H3/ASCONA400.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 12,
       vehicleName: 'LANCIA STRATOS',
       vehicleProbability: 1,
       vehicleClassId: 4,
-      vehicleImageUrlWebp: '../assets/images/vehicles/H3/STRATOS.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/H3/STRATOS.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 13,
       vehicleName: 'DATSUN 240Z',
       vehicleProbability: 1,
       vehicleClassId: 4,
-      vehicleImageUrlWebp: '../assets/images/vehicles/H3/240Z.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/H3/240Z.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 14,
       vehicleName: 'RENAULT 5 TURBO',
       vehicleProbability: 1,
       vehicleClassId: 4,
-      vehicleImageUrlWebp: '../assets/images/vehicles/H3/RENAULT5.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/H3/RENAULT5.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 15,
       vehicleName: 'FORD SIERRA COSWORTH RS500',
       vehicleProbability: 1,
       vehicleClassId: 4,
-      vehicleImageUrlWebp: '../assets/images/vehicles/H3/RS500.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/H3/RS500.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 16,
       vehicleName: 'PEUGEOT 306 MAXI',
       vehicleProbability: 1,
       vehicleClassId: 5,
-      vehicleImageUrlWebp: '../assets/images/vehicles/KITCAR/306MAXI.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/KITCAR/306MAXI.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 17,
       vehicleName: 'SEAT IBIZA KIT CAR',
       vehicleProbability: 1,
       vehicleClassId: 5,
-      vehicleImageUrlWebp: '../assets/images/vehicles/KITCAR/IBIZA.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/KITCAR/IBIZA.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 18,
       vehicleName: 'VOLKSWAGEN GOLF KIT CAR',
       vehicleProbability: 1,
       vehicleClassId: 5,
-      vehicleImageUrlWebp: '../assets/images/vehicles/KITCAR/GOLF.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/KITCAR/GOLF.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 19,
       vehicleName: 'MITSUBISHI LANCER EVOLUTION VI',
       vehicleProbability: 1,
       vehicleClassId: 6,
-      vehicleImageUrlWebp: '../assets/images/vehicles/groupA/EVOLUTION.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/groupA/EVOLUTION.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 20,
       vehicleName: 'SUBARU IMPREZA 1995',
       vehicleProbability: 1,
       vehicleClassId: 6,
-      vehicleImageUrlWebp: '../assets/images/vehicles/groupA/IMPREZA.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/groupA/IMPREZA.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 21,
       vehicleName: 'SUBARU LEGACY RS',
       vehicleProbability: 1,
       vehicleClassId: 6,
-      vehicleImageUrlWebp: '../assets/images/vehicles/groupA/LEGACY.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/groupA/LEGACY.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 22,
       vehicleName: 'LANCIA DELTA HF INTEGRALE',
       vehicleProbability: 1,
       vehicleClassId: 6,
-      vehicleImageUrlWebp: '../assets/images/vehicles/groupA/LANCIA.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/groupA/LANCIA.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 23,
       vehicleName: 'FORD ESCORT RS COSWORTH',
       vehicleProbability: 1,
       vehicleClassId: 6,
-      vehicleImageUrlWebp: '../assets/images/vehicles/groupA/COSWORTH.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/groupA/COSWORTH.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 24,
       vehicleName: 'LANCIA 037 EVO 2',
       vehicleProbability: 1,
       vehicleClassId: 7,
-      vehicleImageUrlWebp: '../assets/images/vehicles/groupBRwd/LANCIA037.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/groupBRwd/LANCIA037.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 25,
       vehicleName: 'OPEL MANTA 400',
       vehicleProbability: 1,
       vehicleClassId: 7,
-      vehicleImageUrlWebp: '../assets/images/vehicles/groupBRwd/OPELMANTA.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/groupBRwd/OPELMANTA.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 26,
       vehicleName: 'BMW M1 PROCAR RALLY',
       vehicleProbability: 1,
       vehicleClassId: 7,
-      vehicleImageUrlWebp: '../assets/images/vehicles/groupBRwd/BMWM1.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/groupBRwd/BMWM1.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 27,
       vehicleName: 'PORSCHE 911 SC RS',
       vehicleProbability: 1,
       vehicleClassId: 7,
-      vehicleImageUrlWebp: '../assets/images/vehicles/groupBRwd/911.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/groupBRwd/911.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 28,
       vehicleName: 'AUDI SPORT QUATTRO S1 E2',
       vehicleProbability: 1,
       vehicleClassId: 8,
-      vehicleImageUrlWebp: '../assets/images/vehicles/groupB4x4/QUATTRO.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/groupB4x4/QUATTRO.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 29,
       vehicleName: 'PEUGEOT 205 T16 EVO 2',
       vehicleProbability: 1,
       vehicleClassId: 8,
-      vehicleImageUrlWebp: '../assets/images/vehicles/groupB4x4/PEUGEOT.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/groupB4x4/PEUGEOT.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 30,
       vehicleName: 'LANCIA DELTA S4',
       vehicleProbability: 1,
       vehicleClassId: 8,
-      vehicleImageUrlWebp: '../assets/images/vehicles/groupB4x4/LANCIA.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/groupB4x4/LANCIA.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 31,
       vehicleName: 'FORD RS200',
       vehicleProbability: 1,
       vehicleClassId: 8,
-      vehicleImageUrlWebp: '../assets/images/vehicles/groupB4x4/RS200.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/groupB4x4/RS200.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 32,
       vehicleName: 'MG METRO 6R4',
       vehicleProbability: 1,
       vehicleClassId: 8,
-      vehicleImageUrlWebp: '../assets/images/vehicles/groupB4x4/6R4.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/groupB4x4/6R4.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 33,
       vehicleName: 'FORD FIESTA R2',
       vehicleProbability: 1,
       vehicleClassId: 9,
-      vehicleImageUrlWebp: '../assets/images/vehicles/R2/FIESTA.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/R2/FIESTA.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 34,
       vehicleName: 'OPEL ADAM R2',
       vehicleProbability: 1,
       vehicleClassId: 9,
-      vehicleImageUrlWebp: '../assets/images/vehicles/R2/ADAM.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/R2/ADAM.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 35,
       vehicleName: 'PEUGEOT 208 R2',
       vehicleProbability: 1,
       vehicleClassId: 9,
-      vehicleImageUrlWebp: '../assets/images/vehicles/R2/PEUGEOT208.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/R2/PEUGEOT208.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 36,
       vehicleName: 'SUBARU WRX STI NR4',
       vehicleProbability: 1,
       vehicleClassId: 10,
-      vehicleImageUrlWebp: '../assets/images/vehicles/N4/SUBARU.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/N4/SUBARU.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 37,
       vehicleName: 'MITSUBISHI LANCER EVOLUTION X',
       vehicleProbability: 1,
       vehicleClassId: 10,
-      vehicleImageUrlWebp: '../assets/images/vehicles/N4/EVOLUTIONX.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/N4/EVOLUTIONX.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 38,
       vehicleName: 'FORD FIESTA R5',
       vehicleProbability: 1,
       vehicleClassId: 11,
-      vehicleImageUrlWebp: '../assets/images/vehicles/R5/FIESTAR5.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/R5/FIESTAR5.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 39,
       vehicleName: 'PEUGEOT 208 R5 T16',
       vehicleProbability: 1,
       vehicleClassId: 11,
-      vehicleImageUrlWebp: '../assets/images/vehicles/R5/PEUGEOTT16.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/R5/PEUGEOTT16.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 40,
       vehicleName: 'VOLKSWAGEN POLO GTI R5',
       vehicleProbability: 1,
       vehicleClassId: 11,
-      vehicleImageUrlWebp: '../assets/images/vehicles/R5/POLO.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/R5/POLO.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 41,
       vehicleName: 'MITSUBISHI SPACESTAR R5',
       vehicleProbability: 1,
       vehicleClassId: 11,
-      vehicleImageUrlWebp: '../assets/images/vehicles/R5/SPACESTAR.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/R5/SPACESTAR.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 42,
       vehicleName: 'SKODA FABIA R5',
       vehicleProbability: 1,
       vehicleClassId: 11,
-      vehicleImageUrlWebp: '../assets/images/vehicles/R5/FABIA.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/R5/FABIA.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 43,
       vehicleName: 'CITROEN C3 R5',
       vehicleProbability: 1,
       vehicleClassId: 11,
-      vehicleImageUrlWebp: '../assets/images/vehicles/R5/CITROEN.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/R5/CITROEN.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 44,
       vehicleName: 'FORD FIESTA R5 MKII',
       vehicleProbability: 1,
       vehicleClassId: 11,
-      vehicleImageUrlWebp: '../assets/images/vehicles/R5/FIESTAR5MKII.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/R5/FIESTAR5MKII.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 45,
       vehicleName: 'SKODA FABIA RALLY',
       vehicleProbability: 1,
       vehicleClassId: 12,
-      vehicleImageUrlWebp: '../assets/images/vehicles/200CC/SKODA.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/200CC/SKODA.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 46,
       vehicleName: 'CITROEN C4 RALLY',
       vehicleProbability: 1,
       vehicleClassId: 12,
-      vehicleImageUrlWebp: '../assets/images/vehicles/200CC/CITROEN.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/200CC/CITROEN.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 47,
       vehicleName: 'FORD FOCUS RS RALLY 2001',
       vehicleProbability: 1,
       vehicleClassId: 12,
-      vehicleImageUrlWebp: '../assets/images/vehicles/200CC/FORD2001.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/200CC/FORD2001.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 48,
       vehicleName: 'SUBARU IMPREZA S4 RALLY',
       vehicleProbability: 1,
       vehicleClassId: 12,
-      vehicleImageUrlWebp: '../assets/images/vehicles/200CC/IMPREZAS4.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/200CC/IMPREZAS4.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 49,
       vehicleName: 'SUBARU IMPREZA 2001',
       vehicleProbability: 1,
       vehicleClassId: 12,
-      vehicleImageUrlWebp: '../assets/images/vehicles/200CC/IMPREZA2001.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/200CC/IMPREZA2001.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 50,
       vehicleName: 'FORD FOCUS RS RALLY 2007',
       vehicleProbability: 1,
       vehicleClassId: 12,
-      vehicleImageUrlWebp: '../assets/images/vehicles/200CC/FORD2007.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/200CC/FORD2007.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 51,
       vehicleName: 'SUBARU IMPREZA',
       vehicleProbability: 1,
       vehicleClassId: 12,
-      vehicleImageUrlWebp: '../assets/images/vehicles/200CC/IMPREZA.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/200CC/IMPREZA.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 52,
       vehicleName: 'PEUGEOT 206 RALLY',
       vehicleProbability: 1,
       vehicleClassId: 12,
-      vehicleImageUrlWebp: '../assets/images/vehicles/200CC/PEUGEOT.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/200CC/PEUGEOT.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 53,
       vehicleName: 'BMW M2 COMPETITION',
       vehicleProbability: 1,
       vehicleClassId: 13,
-      vehicleImageUrlWebp: '../assets/images/vehicles/gtRally/BMWM2.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/gtRally/BMWM2.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 54,
       vehicleName: 'CHEVROLET CAMARO GT4.R',
       vehicleProbability: 1,
       vehicleClassId: 13,
-      vehicleImageUrlWebp: '../assets/images/vehicles/gtRally/GT4R.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/gtRally/GT4R.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 55,
       vehicleName: 'PORSCHE RGT RALLY SPEC',
       vehicleProbability: 1,
       vehicleClassId: 13,
-      vehicleImageUrlWebp: '../assets/images/vehicles/gtRally/PORSCHERGT.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/gtRally/PORSCHERGT.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 56,
       vehicleName: 'ASTON MARTIN V8 VANTAGE GT4',
       vehicleProbability: 1,
       vehicleClassId: 13,
-      vehicleImageUrlWebp: '../assets/images/vehicles/gtRally/VANTAGE.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/gtRally/VANTAGE.webp',
+      isAvailable: true,
     },
     {
       vehicleId: 57,
       vehicleName: 'FORD MUSTANG GT4',
       vehicleProbability: 1,
       vehicleClassId: 13,
-      vehicleImageUrlWebp: '../assets/images/vehicles/gtRally/GT4.webp'
+      vehicleImageUrlWebp: '../assets/images/vehicles/gtRally/GT4.webp',
+      isAvailable: true,
     },
   ];
 
